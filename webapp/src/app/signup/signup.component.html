@@ -1,0 +1,91 @@
+<div class="container border mt-2 p-2 ">
+  <h2>Sign Up</h2>
+  <div class="p-3 w-75 mx-auto alert alert-danger" *ngIf="error!=''">{{error}} </div>
+  <form [formGroup]="signupForm" (submit)="onSubmitSignUp()">
+    <div class="form-row mt-2">
+      <div class="col-12 col-lg-6 col-sm-12 mb-3">
+        <label for="username">User Name</label>
+        <input type="text" class="form-control" id="username" name="username" formControlName="username"
+          placeholder="Enter Username" />
+      </div>
+    </div>
+    <div class="text-danger"
+      *ngIf="signupForm.get('username').hasError('required') && signupForm.get('username').touched ">
+      Username is required
+    </div>
+    <div class="text-danger"
+      *ngIf="signupForm.get('username').touched && signupForm.get('username').hasError('maxlength')">Username
+      cannot exceed 20 characters</div>
+
+
+    <div class="form-row">
+      <div class="col-12 col-lg-6 col-sm-12 mb-3">
+        <label for="firstname">First Name</label>
+        <input type="text" class="form-control" id="firstname" formControlName="firstname"
+          placeholder="Enter First Name" />
+        <div class="text-danger"
+          *ngIf="signupForm.get('firstname').touched && signupForm.get('firstname').hasError('required')">First Name
+          is required</div>
+        <div class="text-danger"
+          *ngIf="signupForm.get('firstname').touched && signupForm.get('firstname').hasError('pattern')">First Name
+          cannot have numbers</div>
+        <div class="text-danger"
+          *ngIf="signupForm.get('firstname').touched && signupForm.get('firstname').hasError('maxlength')">First
+          Name cannot exceed 50 characters</div>
+
+
+      </div>
+      <div class="col-12 col-lg-6 col-sm-12 mb-3">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" class="form-control" formControlName="lastname"
+          placeholder="Enter Last Name" />
+        <div class="text-danger"
+          *ngIf="signupForm.get('lastname').touched && signupForm.get('lastname').hasError('required')">Last Name
+          is required</div>
+        <div class="text-danger"
+          *ngIf="signupForm.get('lastname').touched && signupForm.get('lastname').hasError('pattern')">Last Name
+          cannot have numbers</div>
+        <div class="text-danger"
+          *ngIf="signupForm.get('lastname').touched && signupForm.get('lastname').hasError('maxlength')">Last
+          Name cannot exceed 50 characters</div>
+
+
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-12 col-lg-6 col-sm-12 mb-3">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" formControlName="password"
+          placeholder="Enter Password" />
+        <div class="text-danger"
+          *ngIf="signupForm.get('password').touched && signupForm.get('password').hasError('required')">Password is
+          required</div>
+        <div class="text-danger"
+          *ngIf="signupForm.get('password').touched && signupForm.get('password').hasError('maxlength')">Password must
+          be within 20 characters</div>
+
+      </div>
+
+      <div class="col-12 col-lg-6 col-sm-12 mb-3">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword"
+          placeholder="Enter Confirm Password" />
+        <div class="text-danger"
+          *ngIf="signupForm.get('confirmPassword').touched && signupForm.get('confirmPassword').hasError('required')">
+          Confirm Password is required</div>
+        <div class="text-danger"
+          *ngIf="signupForm.get('confirmPassword').touched && signupForm.get('confirmPassword').hasError('maxlength')">
+          Confirm Password must be within 20 characters</div>
+
+      </div>
+      <div class="alert alert-danger" *ngIf="passwordMismatch">
+        Password and Confirm Password is not same</div>
+
+    </div>
+
+    <button type="submit" id="truyum_save_button" [disabled]="!signupForm.valid" class="btn btn-primary">SignUp</button>
+
+
+  </form>
+</div>

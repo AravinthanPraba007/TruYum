@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm navbar-dark text-light" id="truyum-main-nav">
+  <a href="#" class="navbar-brand">
+    <h4><i class="material-icons pr-2" style="vertical-align:middle">restaurant_menu</i>truYum</h4>
+  </a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#truyum-collapse-header-items">
+    <span class="navbar-toggler-icon">
+    </span>
+  </button>
+  <div id="truyum-collapse-header-items" class="collapse navbar-collapse">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/food-menu" routerLinkActive="active-link">Menu Items</a>
+        &nbsp;&nbsp;
+      </li>
+      <li class="nav-item" *ngIf="!isAuthenticated()">
+        <a class="nav-link text-white" routerLink="/signup" routerLinkActive="active-link">Sign Up</a> &nbsp;&nbsp;
+
+      </li>
+      <li class="nav-item" *ngIf="!isAuthenticated()">
+        <a class="nav-link text-white" routerLink="/login" routerLinkActive="active-link">Login</a> &nbsp;&nbsp;
+
+      </li>
+
+      <li class="nav-item" *ngIf="isCustomer()">
+        <a class="nav-link text-white" routerLink="/cart" routerLinkActive="active-link">Cart</a> &nbsp;&nbsp;
+
+      </li>
+
+      <li class="nav-item" *ngIf="isAuthenticated()">
+        <a class="nav-link text-white" routerLink="/food-menu"><i class="material-icons"
+            style="vertical-align:middle">person</i>{{getUserName()}}</a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated()">
+        <a class="nav-link text-white" routerLink="/login" routerLinkActive="active-link" (click)="onSignOut()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

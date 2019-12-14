@@ -1,0 +1,25 @@
+<div class="container" *ngIf="cartEmpty">
+  <h3 class=" w-75 mx-auto">Cart</h3>
+  <div class="p-3 w-75 mx-auto alert alert-danger">{{error}} Use <a routerLink="/food-menu"
+      routerLinkActive="active-link" class="alert-link">'Add to Cart'</a> option in menu item list.
+  </div>
+</div>
+<div class="container width-half-screen" *ngIf="!cartEmpty">
+  <h3>Cart</h3>
+  <div class="p-3 alert alert-success" *ngIf="cartItemDeleted">Cart item deleted successfully.</div>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between " *ngFor="let item of cart.menuItemList">
+      {{item.name}}
+      <span class="font-weight-light">
+        <div>{{item.price | currency:'INR'}} </div>
+        <div class="float-right"><i (click)="removeFromCart(item.id)"
+            class="material-icons trash-can pr-2 text-secondary" style="vertical-align:middle">delete_forever</i></div>
+      </span>
+    </li>
+   <li class="list-group-item d-flex justify-content-between">
+      <h3> Total</h3>
+      <span>{{cart.total | currency:'INR'}} </span>
+    </li>
+
+  </ul>
+</div>

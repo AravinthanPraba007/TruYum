@@ -1,0 +1,16 @@
+<div class="form-group jumbotron" id="truyum_find_food_search_icon">
+	<label class="control-label" for="Find Food">
+		<h1 class="text-light pl-5 pt-5 pl-2">Find Food</h1>
+	</label>
+	<div class="input-group w-75">
+		<div class="input-group-prepend">
+			<span><i class="input-group-text material-icons ml-5 ml-2"
+					style="vertical-align:middle">local_cafe</i></span>
+
+		</div>
+		<input class="form-control" id="search" name="search" (keyup)="search()" [(ngModel)]="searchKey" type="text"
+			placeholder="Search Food" />
+	</div>
+
+</div>
+<app-food-item-info [food]='foodSearch'></app-food-item-info>

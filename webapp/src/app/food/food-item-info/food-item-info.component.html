@@ -1,0 +1,72 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-3 col-sm-12 d-flex align-items-stretch" *ngFor="let e of food">
+      <div class="card mb-2">
+        <img class="card-img-top" src={{e.url}} />
+        <div class="card-body">
+          <div class="card-title font-weight-bold">
+            <div class="row">
+              <div class="col-8">
+                {{e.name}}
+              </div>
+              <div class="col-4 text-right text-danger">
+                {{e.price | currency :'INR'}}
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2" *ngIf="isEditAllowed()">
+            <div class="col-6" *ngIf="e.active">
+              <span class="badge badge-success">Active</span>{{e.category}}
+            </div>
+            <div class="col-6" *ngIf="!e.active">
+              <span class="badge badge-danger">Inactive</span>{{e.category}}
+            </div>
+            <div class="col-6 text-right" *ngIf="e.freeDelivery">
+              <i id="truyum_local_shipping_icon_color" class="material-icons"
+                style="vertical-align:middle">local_shipping</i><span class="badge badge-info m-2">FREE</span>
+            </div>
+          </div>
+          <div class="row" *ngIf="itemAdded && itemId==e.id">
+            <div class="col-12">
+              <p class="p-3 alert alert-success">Item added successfully.</p>
+            </div>
+          </div>
+          <div class="row mb-2" *ngIf="!isEditAllowed()">
+            <div class="col-6">
+              {{e.category}}
+            </div>
+            <div class="col-6 text-right" *ngIf="e.freeDelivery">
+              <i id="truyum_local_shipping_icon_color" class="material-icons"
+                style="vertical-align:middle">local_shipping</i><span class="badge badge-info m-2">FREE</span>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="isEditAllowed()">
+            <div class="col-6 font-weight-light">
+              <div>
+                <i class="material-icons" style="vertical-align:middle">schedule</i>Launch
+              </div>
+              <div>
+                {{e.dateOfLaunch|date}}
+              </div>
+            </div>
+
+            <div class="col-6">
+              <a [routerLink]="['/foodEdit',e.id]" id="truyum_cart_button_orange" class="btn btn-success float-right"><i
+                  class="material-icons" style="vertical-align:middle">edit</i>Edit</a>
+            </div>
+          </div>
+          <div class="row" *ngIf="!isEditAllowed()">
+            <div class="col-12">
+              <button id="truyum_cart_button_orange" class="btn btn-success float-right" (click)="addCartItem(e.id)"><i
+                  class="material-icons" style="vertical-align:middle">add_shopping_cart</i>Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

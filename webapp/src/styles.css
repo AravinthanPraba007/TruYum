@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+/* include stylesheet for truYum */
+/* truyum all-page footer*/
+#truyum-footer {
+    /*  position:fixed;
+      bottom:0;*/
+    background-color: #cc5200;
+    width: 100%;
+  }
+  
+  /* main navigation background color */
+  #truyum-main-nav {
+    background-color: #cc5200;
+  }
+  
+  /*truyum main icon*/
+  #truyum-main-img {
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+  }
+  /* color of add to cart and save button as orange*/
+  #truyum_cart_button_orange,
+  #truyum_save_button {
+    background-color: #cc5200;
+    border-color: #cc5200;
+  }
+  /*free delivery icon as blue*/
+  #truyum_local_shipping_icon_color {
+    color: #000066;
+  }
+  
+  /*search food icon*/
+  #truyum_find_food_search_icon {
+    background-image: url(https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9);
+    background-position: center;
+    background-size: cover;
+  }
+  
+  /*for a smaller container*/
+  .container.width-half-screen {
+    max-width: 500px;
+  }
+  /*login page container*/
+  .container.login-container.border {
+    max-width: 400px;
+  }
+  
+  /*edit menu container*/
+  .container.truyum-edit-container {
+    max-width: 1500px;
+  }
+  .material-icons.trash-can {
+    cursor: pointer
+
+  }
+  
